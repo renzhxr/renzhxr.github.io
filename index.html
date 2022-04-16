@@ -18,6 +18,39 @@
 <link rel="stylesheet" href="framework7/assets/plugins/select2/select2.min.css">
 <link rel="stylesheet" href="framework7/assets/plugins/swiper/css/swiper.min.css">
 <link rel="stylesheet" href="framework7/assets/css/custom.css">
+<script>
+    // The data/time we want to countdown to
+    var countDownDate = new Date("May 02, 2022 00:00:00").getTime();
+
+    // Run myfunc every second
+    var myfunc = setInterval(function() {
+
+    var now = new Date().getTime();
+    var timeleft = countDownDate - now;
+        
+    // Calculating the days, hours, minutes and seconds left
+    var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+        
+    // Result is output to the specific element
+    document.getElementById("days").innerHTML = days + "d "
+    document.getElementById("hours").innerHTML = hours + "h " 
+    document.getElementById("mins").innerHTML = minutes + "m " 
+    document.getElementById("secs").innerHTML = seconds + "s " 
+        
+    // Display the message when countdown is over
+    if (timeleft < 0) {
+        clearInterval(myfunc);
+        document.getElementById("days").innerHTML = ""
+        document.getElementById("hours").innerHTML = "" 
+        document.getElementById("mins").innerHTML = ""
+        document.getElementById("secs").innerHTML = ""
+        document.getElementById("end").innerHTML = "Minal Aidzin Wal Faidzin. Mohon Maaf Lahir Dan Batin";
+    }
+    }, 1000);
+    </script>
 </head>
 <body class="home">
 <div id="app">
@@ -172,6 +205,11 @@ Leads
 </a>
 </div>
 </div>
+</div>
+<div class="alert alert-info">
+Countdown Hari Raya Idul Fitri<br>
+<p id="days"> Hari</p>, <p id="hours"> Jam</p>, <p id="mins"> Menit</p>, <p id="secs"> Detik</p><br>
+<p id="end"></p>
 </div>
 <div class="tabs">
 <div id="deals" class="tab tab-active">
